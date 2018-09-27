@@ -7,7 +7,7 @@ import csv, random
 import data
 
 dict = {}
-with open('occupations.csv') as csvfile:
+with open('data/occupations.csv') as csvfile:
     reader = csv.DictReader(csvfile) #using dictreader instead of reader allows us to be able to pass parameters from the 1st row to create dict
     for row in reader:
         dict[row['Job Class']] = float(row['Percentage'])
