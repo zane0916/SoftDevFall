@@ -1,10 +1,10 @@
 # Team JayZ -- Johnson Li and Zane Wang
 # SoftDev1 pd8
-# K14 -- Do I Know You?
-# 2018-10-01 M
+# K15 -- Oh yes, perhaps I do...
+# 2018-10-02 T
 
 import os
-from flask import Flask, request, render_template, redirect, url_for, session, $
+from flask import Flask, request, render_template, redirect, url_for, session, flash
 
 app = Flask(__name__)
 
