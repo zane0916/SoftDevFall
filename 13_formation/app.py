@@ -6,7 +6,7 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route("/")#renders form on the home page!
+@app.route("/", methods=["GET","POST"])#renders form on the home page!
 def hello_world():
     print(app)
     return render_template('NewForm.html')
