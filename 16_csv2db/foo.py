@@ -15,24 +15,24 @@ c = db.cursor()               #facilitate db ops
 #==========================================================
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 
-command = "CREATE TABLE peeps_info (name TEXT, age NUMERIC, id NUMBERIC);"
+command = 'CREATE TABLE peeps_info (name TEXT, age INTEGER, id INTEGER);'
 
 c.execute(command)
 
-command = "CREATE TABLE courses_info (code TEXT, mark NUMERIC, id NUMERIC);"
+command = 'CREATE TABLE courses_info (code TEXT, mark INTEGER, id INTEGER);'
 
 c.execute(command)
 
 with open('peeps.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        command = "INSERT INTO peeps_info (" + row['name'] + ", " + row['age'] +", " + row['id'] + ");"
+        command = 'INSERT INTO peeps_info VALUES ("' + row['name'] + '", ' + row['age'] + ', ' + row['id'] + ');'
         c.execute(command)
 
 with open('courses.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        command = "INSERT INTO courses_info (" + row['code'] + ", " + row['mark'] +", " + row['id'] + ");"
+        command = 'INSERT INTO courses_info VALUES ("' + row['code'] + '", ' + row['mark'] + ', ' + row['id'] + ');'
         c.execute(command)
 
 
