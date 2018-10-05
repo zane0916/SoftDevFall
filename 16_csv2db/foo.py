@@ -15,27 +15,31 @@ c = db.cursor()               #facilitate db ops
 #==========================================================
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 
-def CSV_to_dictionary(filename):
-    with open(filename) as fillet:
-        x = csv.DictReader(fillet)
-    print(x);
-    return x 
+command = "CREATE TABLE peeps_info (name TEXT, age NUMERIC, id NUMBERIC);"
 
-CSV_to_dictionary("peeps.csv");
-CSV_to_dictionary("courses.csv");
+c.execute(command)
 
+command = "CREATE TABLE courses_info (code TEXT, mark NUMERIC, id NUMERIC);"
 
+c.execute(command)
 
-'''
-command = """
-CREATE TABLE students_info  (name TEXT, age NUMBER, id NUMBER, code TEXT, mark NUMBER, id NUMBER);
-INSERT INTO students_info (""" + name + ", " + age + ", " + number
+with open('peeps.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        command = "INSERT INTO peeps_info (" + row['name'] + ", " + row['age'] +", " + row['id'] + ");"
+        c.execute(command)
+
+with open('courses.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        command = "INSERT INTO courses_info (" + row['code'] + ", " + row['mark'] +", " + row['id'] + ");"
+        c.execute(command)
 
 
 
 #build SQL stmt, save as string
-c.execute(command)    #run SQL statement
-'''
+#c.execute(command)    #run SQL statement
+
 
 #==========================================================
 
