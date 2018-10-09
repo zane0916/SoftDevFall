@@ -22,50 +22,41 @@ def searchGrades():
     return c
 
 #calc avg of students, makes a list of students and their corresponding ids
-def calcAvg():
-    idList = []
-    avgList = []
-
-    #list of all ids in idList
-    command = "SELECT {0} FROM {1}".format("id","peeps_info")
-    c.execute(command)
-    for row in c:
-        idList.append(row[0])
-
-    #returns a list of ids and avgs of students
-    command = "SELECT {0},{1},{2} FROM {3},{4} WHERE {5} = {6}".format("peeps_info.id","name","mark","peeps_info","courses_info","peeps_info.id","courses_info.id") 
-    c.execute(command)
-    for id in idList:
-        totalscore = []
-        for row in c:
-            if row[0] == id:
-                totalscore.append(row[2])
-        avgList.append([id, sum(totalscore)/len(totalscore)])
-    return avgList
-
-#calcs and inputs the averages into a table consisting of a student with their corresponding average
 def makeAvgTable():
-    command = "CREATE TABLE if not exists {0}({1}, {2});".format("peeps_avg","id INTEGER","avg INTEGER")
+    sumlist = {}
+    courselist = {}
+    
+    #list of all marks per id
+    command = "SELECT {0},{1} FROM {2},{3} WHERE {4} = {5}".format("peeps_info.id","mark","peeps_info","courses_info","peeps_info.id","courses_info.id")
     c.execute(command)
-    avgList = calcAvg()
-    for row in avgList:
-        command = "INSERT INTO {0} VALUES({1},{2}".format(avgList[0],avgList[1])
+    print("ALL THE SELECTED ROWS IN C")
+    for row in c:
+        print(row)
+        if row[0] in sumlist:
+            sumlist[row[0]] += row[1]
+            courselist[row[0]] += 1
+        else:
+            sumlist[row[0]] = row[1]
+            courselist[row[0]] = 1
+    for id in courselist:
+        avg = sumlist[id] / courselist[id]
+        command = 'INSERT INTO peeps_avg VALUES({0}, {1})'.format(id, avg)
         c.execute(command)
 
 #selects the name, id, and avgs of all students, so that they can be displayed using the main method later
 def displayAvg():
     command = "SELECT {0},{1},{2} FROM {3},{4} WHERE {5} = {6}".format("name","peeps_info.id","avg","peeps_info","peeps_avg","peeps_info.id","peeps_avg.id",)
     c.execute(command)
+    print("ALL STUDENTS AND THEIR AVERAGES")
+    for row in c:
+        print(row)
     return c
 
 def main():
     searchGrades()
-    calcAvg()
     makeAvgTable()
     #run display to set c as the one from displayAvg()
     displayAvg()
-    for row in c:
-        print(row)
 
 main()
 
