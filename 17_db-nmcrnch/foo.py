@@ -1,4 +1,4 @@
-#azrael - Jason Tung and Zane Wang
+#Team PandaBBT - Tania Cao Su and Zane Wang
 #SoftDev1 pd8
 #K16 -- No Trouble
 #2018-10-04
