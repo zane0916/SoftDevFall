@@ -40,7 +40,6 @@ def calcAvg():
         for row in c:
             if row[0] == id:
                 totalscore.append(row[2])
-        print(num)
         avgList.append([id, sum(totalscore)/len(totalscore)])
     return avgList
 
