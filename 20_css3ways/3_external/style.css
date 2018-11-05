@@ -1,0 +1,46 @@
+html {
+  font-family: Arial;
+  background: #505050;
+}
+
+h1 {
+  color: white;
+  background: #B0B0B0;
+  text-align: center;
+}
+
+h3 {
+  padding-left: 5px;
+  margin-top: -8px
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 5px;
+  margin-top: 0px;
+  font-weight: bold;
+  color: white;
+}
+
+body, ul, #right, a, h2, h3, p{
+  background: #707070;
+}
+
+a {
+  color:#C8C8C8;
+  text-decoration: none;
+}
+
+#copy {
+  text-align: right;
+  background: #484848;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #686868;
+}
+
+#right {
+  margin-left:180px;
+  margin-top:-120px;
+}
