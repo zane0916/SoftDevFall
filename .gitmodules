@@ -1,3 +1,6 @@
 [submodule "21_fd_astro0_songD-wangZ"]
 	path = 21_fd_astro0_songD-wangZ
 	url = https://github.com/dereksong01/Astro0.git
+[submodule "23_bt_astro0_songD-wangZ"]
+	path = 23_bt_astro0_songD-wangZ
+	url = https://github.com/zane0916/hw23_astro0.git
