@@ -1,0 +1,44 @@
+{% extends "template.html" %}
+{% block title %} {{title}} {% block title %}
+{% block body %}
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h1> {{title}} </h1>
+		  <img src="#"> Image goes here</img>
+        </div>
+      </div>
+	  <div>
+		<h1>Tables</h1>
+          <table>
+            <tr>
+              <th>Description</th>
+              <td> {{descr}} </td>
+            </tr>
+			<tr>
+			  <th>Actors</th>
+			  <td> {{actors}} </td>
+			</tr>
+			<tr>
+			  <th>Year Released</th>
+			  <td> {{year}} </td>
+			</tr>
+			<tr>
+			  <th>Rating</th>
+			  <td> {{rating}} </td>
+			</tr>
+			<tr>
+			  <th>Genre</th>
+              <td> {{genre}} </td>
+			</tr>
+            <tr>
+              <th>Book Adaptation</th>
+              <td> {{book}} </td>
+            </tr>
+		</table>
+	  </div>
+
+      <p><a href="#" class="button">Favorite</a><br/>
+    </div>
+    <a href="#" class="secondary button">Return</a></p>
+{% endblock %}
