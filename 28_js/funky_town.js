@@ -1,3 +1,8 @@
+//MinZane -- Hui Min Wu, Zane Wang
+//SoftDev1 pd8
+//K28 -- Sequential Progression
+//2018-12-18
+
 var fibonacci = function(n) {
     if (n == 0) {
         return 0;
@@ -20,8 +25,8 @@ var gcd = function(a, b) {
     };
 };
 
-var listName = ["Hui Min", "Zane", "Johnny"];
+var arrayName = ["Hui Min", "Zane", "Johnny"];
 
 var randomStudent = function() {
-    return listName[Math.floor(Math.random() * listName.length)];
+    return arrayName[Math.floor(Math.random() * arrayName.length)];
 }
