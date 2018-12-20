@@ -17,16 +17,18 @@ app = Flask(__name__)
 def setupdb():
     #sets up database by creating tables that will exist in them
     #creates user tables
-    command = "CREATE TABLE IF NOT EXISTS users(id INTEGER, user, pass)"
+    command = "CREATE TABLE IF NOT EXISTS users(id INTEGER, user TEXT, pass TEXT)"
     c.execute(command)
 
     #creates favorite tables
-    command = "CREATE TABLE IF NOT EXISTS favorites(id INTEGER, story)"
+    command = "CREATE TABLE IF NOT EXISTS favorites(id INTEGER, story TEXT)"
     c.execute(command)
     return c
 
 @app.route("/")
 def generate():
+    if user in session:
+        return render_template("homepage.html")
     return render_template("homepage.html")
     
 '''
@@ -39,12 +41,16 @@ def generate():
 @app.route("/logout")
     render_template("logout.html")
 
-@app.route("/movies")
-    render_template("<>.html")
-
 @app.route("/info")
     render_template("<>.html")
 '''
+
+def recList():
+    command = "SELECT * FROM favorites;"
+    favList = []
+    movieList = "http://www.omdbapi.com/?apikey=b7503b8d"
+    for x in favList:
+        if x["genre"] == 
     
 @app.route("/search", methods = ["POST", "GET"])
 def search():

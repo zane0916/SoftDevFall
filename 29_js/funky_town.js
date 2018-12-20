@@ -86,4 +86,7 @@ var randomStudent = () => {
   document.getElementById('std').innerHTML = student
 }
 // adds onclick action to the button of id 'fib'
-document.getElementById('rstd').addEventListener('click', randomStudent);
+document.getElementById('rstd').addEventListener('click',
+						 function(e)
+						 {console.log(e);}
+						);
